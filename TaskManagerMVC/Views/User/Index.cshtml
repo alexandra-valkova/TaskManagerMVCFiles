@@ -1,0 +1,65 @@
+﻿@model TaskManagerMVC.ViewModels.Users.UserIndexVM
+
+@{
+    ViewBag.Title = "Users - Index";
+}
+
+<h2>Users</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateEdit")
+</p>
+
+@using (Html.BeginForm("Index", "User", FormMethod.Get))
+{
+    <p>
+        Search: @Html.TextBoxFor(model => model.SearchString)
+        <input type="submit" value="Filter" />
+    </p>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            Username
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Admin
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (User user in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => user.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.IsAdmin)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "CreateEdit", new { id = user.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = user.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = user.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@{
+    Html.RenderPartial("Pager", Model.Pager);
+}

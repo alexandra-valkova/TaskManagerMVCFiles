@@ -1,0 +1,65 @@
+﻿@model TaskManagerMVC.ViewModels.Tasks.TaskIndexVM
+
+@{
+    ViewBag.Title = "Tasks - Index";
+}
+
+<h2>Tasks</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateEdit")
+</p>
+
+@using (Html.BeginForm("Index", "Task", FormMethod.Get))
+{
+    <p>
+        Search: @Html.TextBoxFor(model => model.SearchString)
+        <input type="submit" value="Filter" />
+    </p>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Working Hours
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (Task task in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => task.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => task.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => task.WorkingHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => task.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "CreateEdit", new { id = task.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = task.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = task.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@{
+    Html.RenderPartial("Pager", Model.Pager);
+}

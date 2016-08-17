@@ -1,0 +1,5 @@
+c:\users\alexandra\documents\visual studio 2015\Projects\TaskManagerMVC\DataAccess\bin\Debug\DataAccess.dll
+c:\users\alexandra\documents\visual studio 2015\Projects\TaskManagerMVC\DataAccess\bin\Debug\DataAccess.pdb
+c:\users\alexandra\documents\visual studio 2015\Projects\TaskManagerMVC\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+c:\users\alexandra\documents\visual studio 2015\Projects\TaskManagerMVC\DataAccess\obj\Debug\DataAccess.dll
+c:\users\alexandra\documents\visual studio 2015\Projects\TaskManagerMVC\DataAccess\obj\Debug\DataAccess.pdb

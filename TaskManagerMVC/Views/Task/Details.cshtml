@@ -1,0 +1,140 @@
+﻿@model TaskManagerMVC.ViewModels.Tasks.TaskDetailsVM
+<div>
+    <h1>Task</h1>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkingHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkingHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Responsible)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Responsible)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastEditDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastEditDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "CreateEdit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<hr />
+<h2>Logworks</h2>
+
+@{
+    Html.RenderAction("CreateLogwork");
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            Working Hours
+        </th>
+        <th>
+            Created Date
+        </th>
+    </tr>
+
+    @foreach (Logwork logwork in Model.Logworks)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => logwork.WorkingHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => logwork.CreateDate)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.Partial("Pager", Model.LogworksPager)
+
+<hr />
+<h2>Comments</h2>
+
+@{
+    Html.RenderAction("CreateComment");
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            Text
+        </th>
+        <th>
+            Created Date
+        </th>
+    </tr>
+
+    @foreach (Comment comment in Model.Comments)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => comment.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => comment.CreateDate)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.Partial("Pager", Model.CommentsPager)
