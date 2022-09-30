@@ -12,17 +12,18 @@ namespace DataAccess.Repositories
 
         protected override Task GetEntity(StreamReader sr)
         {
-            Task task = new Task();
-
-            task.ID = int.Parse(sr.ReadLine());
-            task.Title = sr.ReadLine();
-            task.Description = sr.ReadLine();
-            task.WorkingHours = int.Parse(sr.ReadLine());
-            task.CreatorID = int.Parse(sr.ReadLine());
-            task.ResponsibleID = int.Parse(sr.ReadLine());
-            task.CreateDate = DateTime.Parse(sr.ReadLine());
-            task.LastEditDate = DateTime.Parse(sr.ReadLine());
-            task.Status = (StatusEnum)Enum.Parse(typeof(StatusEnum), sr.ReadLine());
+            Task task = new Task
+            {
+                ID = int.Parse(sr.ReadLine()),
+                Title = sr.ReadLine(),
+                Description = sr.ReadLine(),
+                WorkingHours = int.Parse(sr.ReadLine()),
+                CreatorID = int.Parse(sr.ReadLine()),
+                ResponsibleID = int.Parse(sr.ReadLine()),
+                CreateDate = DateTime.Parse(sr.ReadLine()),
+                LastEditDate = DateTime.Parse(sr.ReadLine()),
+                Status = (StatusEnum)Enum.Parse(typeof(StatusEnum), sr.ReadLine())
+            };
 
             return task;
         }

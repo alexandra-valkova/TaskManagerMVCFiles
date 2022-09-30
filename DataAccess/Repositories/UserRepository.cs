@@ -12,13 +12,16 @@ namespace DataAccess.Repositories
 
         protected override User GetEntity(StreamReader sr)
         {
-            User user = new User();
-            user.ID = int.Parse(sr.ReadLine());
-            user.Username = sr.ReadLine();
-            user.Password = sr.ReadLine();
-            user.FirstName = sr.ReadLine();
-            user.LastName = sr.ReadLine();
-            user.IsAdmin = Convert.ToBoolean(sr.ReadLine());
+            User user = new User
+            {
+                ID = int.Parse(sr.ReadLine()),
+                Username = sr.ReadLine(),
+                Password = sr.ReadLine(),
+                FirstName = sr.ReadLine(),
+                LastName = sr.ReadLine(),
+                IsAdmin = Convert.ToBoolean(sr.ReadLine())
+            };
+
             return user;
         }
 
@@ -34,7 +37,7 @@ namespace DataAccess.Repositories
 
         public User GetByUsernameAndPassword(string username, string password)
         {
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(FilePath, FileMode.OpenOrCreate))
             using (StreamReader sr = new StreamReader(fs))
             {
                 while (!sr.EndOfStream)

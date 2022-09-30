@@ -11,7 +11,7 @@ namespace TaskManagerMVC.ViewModels.Tasks
 
         [Required]
         [Display(Name = "Logged Hours")]
-        [Range(1, int.MaxValue, ErrorMessage = "Please enter a valid integer!")]        
+        [Range(1, int.MaxValue, ErrorMessage = "Please enter a valid integer!")]
         public int WorkingHours { get; set; }
 
         public DateTime CreateDate { get; set; }

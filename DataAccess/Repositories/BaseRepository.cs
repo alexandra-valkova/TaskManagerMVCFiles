@@ -7,18 +7,18 @@ namespace DataAccess.Repositories
 {
     public abstract class BaseRepository<T> where T : BaseEntity
     {
-        public string filePath { get; set; }
+        public string FilePath { get; set; }
 
         public BaseRepository(string filePath)
         {
-            this.filePath = filePath;
+            FilePath = filePath;
         }
 
         public virtual List<T> GetAll()
         {
             List<T> entities = new List<T>();
 
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(FilePath, FileMode.OpenOrCreate))
             using (StreamReader sr = new StreamReader(fs))
             {
                 while (!sr.EndOfStream)
@@ -35,7 +35,7 @@ namespace DataAccess.Repositories
         {
             List<T> entities = new List<T>();
 
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(FilePath, FileMode.OpenOrCreate))
             using (StreamReader sr = new StreamReader(fs))
             {
                 while (!sr.EndOfStream)
@@ -53,7 +53,7 @@ namespace DataAccess.Repositories
 
         public virtual T GetByID(int id)
         {
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(FilePath, FileMode.OpenOrCreate))
             using (StreamReader sr = new StreamReader(fs))
             {
                 while (!sr.EndOfStream)
@@ -74,7 +74,7 @@ namespace DataAccess.Repositories
         {
             int id = 0;
 
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(FilePath, FileMode.OpenOrCreate))
             using (StreamReader sr = new StreamReader(fs))
             {
                 while (!sr.EndOfStream)
@@ -96,7 +96,7 @@ namespace DataAccess.Repositories
         {
             item.ID = GetNextID();
 
-            using (FileStream fs = new FileStream(filePath, FileMode.Append))
+            using (FileStream fs = new FileStream(FilePath, FileMode.Append))
             using (StreamWriter sw = new StreamWriter(fs))
             {
                 SaveEntity(item, sw);
@@ -105,12 +105,12 @@ namespace DataAccess.Repositories
 
         private void Edit(T item)
         {
-            string fileName = filePath.Substring(filePath.LastIndexOf(@"\") + 1);
-            string fileFolder = filePath.Substring(0, filePath.LastIndexOf(@"\"));
+            string fileName = FilePath.Substring(FilePath.LastIndexOf(@"\") + 1);
+            string fileFolder = FilePath.Substring(0, FilePath.LastIndexOf(@"\"));
 
             string tempFile = fileFolder + "temp." + fileName;
 
-            using (FileStream ifs = new FileStream(filePath, FileMode.OpenOrCreate))
+            using (FileStream ifs = new FileStream(FilePath, FileMode.OpenOrCreate))
             using (StreamReader sr = new StreamReader(ifs))
             using (FileStream ofs = new FileStream(tempFile, FileMode.OpenOrCreate))
             using (StreamWriter sw = new StreamWriter(ofs))
@@ -131,18 +131,18 @@ namespace DataAccess.Repositories
                 }
             }
 
-            File.Delete(filePath);
-            File.Move(tempFile, filePath);
+            File.Delete(FilePath);
+            File.Move(tempFile, FilePath);
         }
 
         public void Delete(T item)
         {
-            string fileName = filePath.Substring(filePath.LastIndexOf(@"\") + 1);
-            string fileFolder = filePath.Substring(0, filePath.LastIndexOf(@"\"));
+            string fileName = FilePath.Substring(FilePath.LastIndexOf(@"\") + 1);
+            string fileFolder = FilePath.Substring(0, FilePath.LastIndexOf(@"\"));
 
             string tempFile = fileFolder + "temp." + fileName;
 
-            using (FileStream ifs = new FileStream(filePath, FileMode.OpenOrCreate))
+            using (FileStream ifs = new FileStream(FilePath, FileMode.OpenOrCreate))
             using (StreamReader sr = new StreamReader(ifs))
             using (FileStream ofs = new FileStream(tempFile, FileMode.OpenOrCreate))
             using (StreamWriter sw = new StreamWriter(ofs))
@@ -158,8 +158,8 @@ namespace DataAccess.Repositories
                 }
             }
 
-            File.Delete(filePath);
-            File.Move(tempFile, filePath);
+            File.Delete(FilePath);
+            File.Move(tempFile, FilePath);
         }
 
         public void Save(T entity)

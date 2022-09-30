@@ -13,13 +13,14 @@ namespace DataAccess.Repositories
 
         protected override Logwork GetEntity(StreamReader sr)
         {
-            Logwork logwork = new Logwork();
-
-            logwork.ID = int.Parse(sr.ReadLine());
-            logwork.TaskID = int.Parse(sr.ReadLine());
-            logwork.UserID = int.Parse(sr.ReadLine());
-            logwork.WorkingHours = int.Parse(sr.ReadLine());
-            logwork.CreateDate = DateTime.Parse(sr.ReadLine());
+            Logwork logwork = new Logwork
+            {
+                ID = int.Parse(sr.ReadLine()),
+                TaskID = int.Parse(sr.ReadLine()),
+                UserID = int.Parse(sr.ReadLine()),
+                WorkingHours = int.Parse(sr.ReadLine()),
+                CreateDate = DateTime.Parse(sr.ReadLine())
+            };
 
             return logwork;
         }
@@ -37,7 +38,7 @@ namespace DataAccess.Repositories
         {
             List<Logwork> logworks = new List<Logwork>();
 
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(FilePath, FileMode.OpenOrCreate))
             using (StreamReader sr = new StreamReader(fs))
             {
                 while (!sr.EndOfStream)
