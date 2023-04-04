@@ -1,11 +1,11 @@
 ﻿using DataAccess.Entities;
-using System;
 using DataAccess.Repositories;
-using TaskManagerMVC.Models;
-using TaskManagerMVC.ViewModels.Tasks;
-using System.Web.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
+using TaskManagerMVC.Models;
+using TaskManagerMVC.ViewModels.Tasks;
 
 namespace TaskManagerMVC.Controllers
 {

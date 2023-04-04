@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using DataAccess.Entities;
+﻿using DataAccess.Entities;
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace DataAccess.Repositories
 {

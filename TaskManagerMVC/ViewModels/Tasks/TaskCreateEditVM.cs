@@ -20,7 +20,7 @@ namespace TaskManagerMVC.ViewModels.Tasks
         [Range(1, int.MaxValue, ErrorMessage = "Plese enter a valid integer!")]
         [Display(Name = "Working Hours")]
         public int WorkingHours { get; set; }
-        
+
         public int CreatorID { get; set; }
 
         [Display(Name = "Responsible")]

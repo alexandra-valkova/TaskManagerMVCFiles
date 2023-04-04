@@ -1,5 +1,5 @@
-﻿using TaskManagerMVC.Models;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using TaskManagerMVC.Models;
 using TaskManagerMVC.ViewModels.Home;
 
 namespace TaskManagerMVC.Controllers

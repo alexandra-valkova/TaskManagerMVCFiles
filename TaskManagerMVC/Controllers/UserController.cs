@@ -78,7 +78,7 @@ namespace TaskManagerMVC.Controllers
                 model.Password = user.Password;
                 model.FirstName = user.FirstName;
                 model.LastName = user.LastName;
-                model.IsAdmin = user.IsAdmin; 
+                model.IsAdmin = user.IsAdmin;
             }
 
             return model;
