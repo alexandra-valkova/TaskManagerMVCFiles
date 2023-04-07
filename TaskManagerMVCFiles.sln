@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagerMVC", "TaskManagerMVC\TaskManagerMVC.csproj", "{C6AEFE1A-8523-4153-8425-7BA0E55A9761}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A87CB780-4983-407B-A89D-851E9A182C63}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{38AD01B8-B296-4F42-8BF7-0FCE8D6BCA47}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D0D0A699-1F7B-4F5D-8605-B24E123BB74A}"
 	ProjectSection(SolutionItems) = preProject
 		Task.txt = Task.txt
 	EndProjectSection
@@ -29,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4A63300-7941-463E-8307-6C75269D64BD}
 	EndGlobalSection
 EndGlobal
